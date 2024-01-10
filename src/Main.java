@@ -13,7 +13,7 @@
 //        учитывать минимальный размер оплаты труда
 //        7. У менеджера по продажам нет фиксированной оплаты , его  зарплата рассчитывается как процент от обьема продаж
 //        Но его метод оплаты труда также должен учитывать минимальный размер оплаты труда
-//        8. Программа должна быть написана с использованием свойств наследования
+//        8. Программа должна быть написана с использованием свойств
 
 
 import accaunting.Company;
@@ -23,6 +23,7 @@ import accaunting.WageEmployee;
 
 public class Main {
     public static final String BLUE = "\u001B[34m";
+    public static final String YELLOW = "\u001B[33m";
     public static void main(String[] args) {
 
 
@@ -57,9 +58,19 @@ public class Main {
         System.out.println("Everybody salary = " + company.sumSalary());
 
 
-        company.sortEmployeesSecondName();
-        System.out.println(BLUE + "List of employees , sorted by last name : ");
+        System.out.println(BLUE + "List of employees , sorted by Name : ");
+        company.sortEmployees();
         company.display();
+
+        System.out.println(YELLOW + "List of employees , sorted by Id : ");
+        company.sortEmployeesId();
+        company.display();
+
+        System.out.println(YELLOW + "List of employees , sorted by Name and Id : ");
+        company.sortEmployeesNameAndId();
+        company.display();
+
+
 
 
 

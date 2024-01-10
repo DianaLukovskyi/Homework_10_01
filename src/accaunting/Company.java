@@ -1,5 +1,9 @@
 package accaunting;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+
 public class Company {
     private Employee[]employees;
     private int companySize;
@@ -8,23 +12,8 @@ public class Company {
        employees = new Employee[capacity];
        companySize = 0;
 
-
-
     }
-    public void sortEmployeesSecondName(){
-       for (int i = 0; i < companySize - 1; i++){
-           for (int j = 0; j < companySize - i -1; j++){
-               if (employees[j].getSecondName().compareTo(employees[j + 1].getSecondName())>0){
-                   Employee temp = employees[j];
-                   employees[j] = employees[j + 1];
-                   employees [j + 1] = temp;
 
-               }
-           }
-       }
-
-
-    }
 
     public boolean addEmployee(Employee employee) {
        if(companySize < employees.length){
@@ -61,4 +50,21 @@ public class Company {
         }
        return sum;
     }
-}
+
+
+    public void sortEmployees(){
+        Arrays.sort(employees,0 ,companySize);
+    }
+    public void sortEmployeesId(){
+       Arrays.sort(employees, 0,companySize, Comparator.comparingInt(Employee :: getId));
+
+    }
+    public void sortEmployeesNameAndId(){
+       Arrays.sort(employees, 0, companySize, Comparator.comparing(Employee :: getSecondName)
+               .thenComparing(Employee :: getName).thenComparingInt(Employee :: getId));
+    }
+
+
+    }
+
+
